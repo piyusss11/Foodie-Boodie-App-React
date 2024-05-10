@@ -1,5 +1,6 @@
 import React from "react";
-
+import Filters from "./Filters";
+import Search from "./Search";
 const ShimmerCard = () => {
   return (
     <div className="bg-white res-card w-56 h-80 rounded-xl  ">
@@ -14,27 +15,16 @@ const ShimmerCard = () => {
 
 const Shimmer = () => {
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-end mr-20 mt-6">
-        <div className="flex justify-center mt-2">
-          <div className="search-container flex gap-2">
-            <input
-              className="p-1 border border-gray-300 rounded-lg text-sm focus:outline-none"
-              type="text"
-              placeholder="Search..."
-            />
-            <button className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 rounded-lg">
-              Search
-            </button>
-          </div>
+    <div className="">
+      <div className="filters mt-8 flex justify-between mx-20">
+        <div className="filter-btn flex gap-6 ">
+          <Filters filtername="Top Rated" />
+          <Filters filtername="Delivery Time" />
+          <Filters filtername="Reset" />
         </div>
+        <Search />
       </div>
-      <div className="filters mt-4 flex justify-center ">
-        <button className="filter-btn p-2 border-2 rounded-3xl  text-xs active:text-white active:bg-yellow-500">
-          Top Rated
-        </button>
-      </div>
-      <div className="flex justify-center items-center gap-8 mt-8">
+      <div className="flex gap-8 mx-20 mt-8 justify-center flex-wrap">
         <ShimmerCard />
         <ShimmerCard />
         <ShimmerCard />

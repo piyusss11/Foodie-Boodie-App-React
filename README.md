@@ -12,3 +12,9 @@ Links - Copyrights
 
 1.useState() - superpower state react variable
 2.useEffect()
+
+
+offer
+pure veg
+nearest
+pocket friendly

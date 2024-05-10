@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-
-
+import Filters from "./Filters";
+import Search from "./Search";
 
 import { useState, useEffect } from "react";
 
@@ -9,6 +9,8 @@ const Body = () => {
   //Local State Variable
 
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+
+  
 
   useEffect(() => {
     fetchData();
@@ -21,46 +23,49 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json);
-    
+
     // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-    setListOfRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+    let resto =
+      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+    setListOfRestaurants(resto);
   };
-if (ListOfRestaurants.length === 0 ){
-  return (<Shimmer/>)
   
-}
-  return (
+  return ListOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
-      <div className="flex justify-end mr-20 mt-6">
-        <div className="flex justify-center mt-2">
-          <div className="search-container flex gap-2">
-            <input
-              className="p-1 border border-gray-300 rounded-lg text-sm focus:outline-none"
-              type="text"
-              placeholder="Search..."
-            />
-            <button className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 rounded-lg">
-              Search
-            </button>
-          </div>
+      <div className="filters mt-8 flex justify-between mx-20">
+        <div className="filter-btn flex gap-6 ">
+          <Filters
+            filtername="Top Rated"
+            clicky={() => {
+              const filteredList = ListOfRestaurants.filter(
+                (res) => res.info.avgRating > 4.2
+              );
+              setListOfRestaurants(filteredList);
+            }}
+          />
+          <Filters
+            filtername="Delivery Time"
+            clicky={() => {
+              const filteredList = ListOfRestaurants.filter(
+                (res) => res.info.sla.deliveryTime < 30
+              );
+              setListOfRestaurants(filteredList);
+            }}
+          />
+          <Filters
+            filtername="Reset"
+            clicky={() => {
+              const filteredList = ListOfRestaurants;
+              setListOfRestaurants(ListOfRestaurants);// still writing the logic
+            }}
+          />
         </div>
-      </div>
-      <div className="filters mt-4 flex justify-center ">
-        <button
-          onClick={() => {
-            const filteredList = ListOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setListOfRestaurants(filteredList);
-          }}
-          className="filter-btn p-2 border-2 rounded-3xl  text-xs active:text-white active:bg-yellow-500"
-        >
-          Top Rated
-        </button>
+        <Search />
       </div>
 
-      <div className="mx-20 res-container mt-12 flex flex-wrap gap-8 justify-center items-center ">
+      <div className="res-container mt-10 flex flex-wrap gap-8 justify-center items-center m-20 ">
         {ListOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}

@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
+  const [btnName, setbtnName] = useState("Login");
+  console.log("header rendered");
+
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">
       <div className="logo-container">
@@ -19,6 +23,19 @@ const Header = () => {
           </li>
           <li>
             <i className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden ri-shopping-cart-line"></i>
+          </li>
+          <li>
+            {" "}
+            <button
+              onClick={() => {
+                btnName === "Login"
+                  ? setbtnName("Logout")
+                  : setbtnName("Login");
+              }}
+              className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 w-20 rounded-lg"
+            >
+              {btnName}
+            </button>
           </li>
           <li>
             <i className="text-yellow-500 cursor-pointer ri-more-2-fill  md:hidden"></i>
