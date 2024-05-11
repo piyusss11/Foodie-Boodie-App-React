@@ -7,9 +7,9 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   //Local State Variable
-  console.log("body rendered");
 
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
 
   useEffect(() => {
@@ -28,6 +28,8 @@ const Body = () => {
     let resto =
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
     setListOfRestaurants(resto);
+ 
+    setfilteredRestaurants(resto)
   };
 
   return ListOfRestaurants.length === 0 ? (
@@ -39,31 +41,30 @@ const Body = () => {
           <Filters
             filtername="Top Rated"
             clicky={() => {
-              const filteredList = ListOfRestaurants.filter(
+              const filteredList = filteredRestaurants.filter(
                 (res) => res.info.avgRating > 4.2
               );
-              setListOfRestaurants(filteredList);
+              setfilteredRestaurants(filteredList);
             }}
           />
           <Filters
             filtername="Delivery Time"
             clicky={() => {
-              const filteredList = ListOfRestaurants.filter(
+              const filteredList = filteredRestaurants.filter(
                 (res) => res.info.sla.deliveryTime < 30
               );
-              setListOfRestaurants(filteredList);
+              setfilteredRestaurants(filteredList);
             }}
           />
           <Filters
             filtername="Reset"
             clicky={() => {
-              // const filteredList = ListOfRestaurants;
-              //  setListOfRestaurants(ListOfRestaurants);  still writing the logic
+              setfilteredRestaurants(ListOfRestaurants)
             }}
           />
         </div>
        
-        <div>
+        <div className="flex gap-2">
           <input className="p-1 border border-gray-300 rounded-lg text-sm focus:outline-none"
             value={searchText}
             onChange={(e) => {
@@ -77,9 +78,9 @@ const Body = () => {
               console.log(ListOfRestaurants);
 
               const filteredRestaurants = ListOfRestaurants.filter((res) =>
-                res.info.name.includes(searchText)
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setListOfRestaurants(filteredRestaurants);
+              setfilteredRestaurants(filteredRestaurants);
             }}
             className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 rounded-lg"
           >
@@ -89,7 +90,7 @@ const Body = () => {
       </div>
 
       <div className="res-container  mt-10 flex flex-wrap gap-8 justify-center items-center  ">
-        {ListOfRestaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
