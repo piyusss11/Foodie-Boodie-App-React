@@ -1,16 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import Filters from "./Filters";
-import Search from "./Search";
+
 
 import { useState, useEffect } from "react";
 
 const Body = () => {
   //Local State Variable
+  console.log("body rendered");
 
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
-
-  
+  const [searchText, setsearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -29,7 +29,7 @@ const Body = () => {
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
     setListOfRestaurants(resto);
   };
-  
+
   return ListOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -57,15 +57,38 @@ const Body = () => {
           <Filters
             filtername="Reset"
             clicky={() => {
-              const filteredList = ListOfRestaurants;
-              setListOfRestaurants(ListOfRestaurants);// still writing the logic
+              // const filteredList = ListOfRestaurants;
+              //  setListOfRestaurants(ListOfRestaurants);  still writing the logic
             }}
           />
         </div>
-        <Search />
+       
+        <div>
+          <input className="p-1 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+            
+            placeholder="search"
+          ></input>
+          <button
+            onClick={() => {
+              console.log(ListOfRestaurants);
+
+              const filteredRestaurants = ListOfRestaurants.filter((res) =>
+                res.info.name.includes(searchText)
+              );
+              setListOfRestaurants(filteredRestaurants);
+            }}
+            className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 rounded-lg"
+          >
+            Search
+          </button>
+        </div>
       </div>
 
-      <div className="res-container mt-10 flex flex-wrap gap-8 justify-center items-center m-20 ">
+      <div className="res-container  mt-10 flex flex-wrap gap-8 justify-center items-center  ">
         {ListOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}

@@ -3,7 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
-  console.log("header rendered");
+  
 
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">

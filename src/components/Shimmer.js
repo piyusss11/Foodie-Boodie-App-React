@@ -1,6 +1,6 @@
 import React from "react";
 import Filters from "./Filters";
-import Search from "./Search";
+import Search from "./search";
 const ShimmerCard = () => {
   return (
     <div className="bg-white res-card w-56 h-80 rounded-xl  ">
