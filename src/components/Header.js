@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
+  console.log("header rendered");
   
+  
+  useEffect(()=>{
+    console.log("useeffect is called");
+    
+  },[btnName])
 
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">
