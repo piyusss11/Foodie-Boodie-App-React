@@ -4,12 +4,10 @@ import { LOGO_URL } from "../utils/constants";
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   console.log("header rendered");
-  
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     console.log("useeffect is called");
-    
-  },[btnName])
+  }, [btnName]);
 
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">
@@ -21,11 +19,11 @@ const Header = () => {
           <li className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden">
             Home <i className="ri-home-2-line"></i>
           </li>
-          <li className="md:cursor-pointer md:block hidden hover:text-yellow-500 ">
-            Sign In <i className="ri-contacts-line"></i>
-          </li>
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500">
-            Help <i className="ri-information-line"></i>
+            About Us <i className="ri-information-line"></i>
+          </li>
+          <li className="md:cursor-pointer md:block hidden hover:text-yellow-500 ">
+            Contact Us <i className="ri-contacts-line"></i>
           </li>
           <li>
             <i className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden ri-shopping-cart-line"></i>
