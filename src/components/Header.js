@@ -1,29 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   console.log("header rendered");
 
-  useEffect(() => {
-    console.log("useeffect is called");
-  }, [btnName]);
-
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">
       <div className="logo-container">
-        <img className="w-24 cursor-pointer" src={LOGO_URL} alt="Logo" />
+        <Link to="/">
+          <img className="w-24 cursor-pointer" src={LOGO_URL} alt="Logo" />
+        </Link>
       </div>
       <div className="nav-items ">
         <ul className="flex gap-12  text-base">
           <li className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden">
-            Home <i className="ri-home-2-line"></i>
+            <Link to="/">Home<i className="ri-home-2-line"></i></Link> 
           </li>
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500">
-            About Us <i className="ri-information-line"></i>
+            <Link to="/about">About Us  <i className="ri-information-line"></i></Link>
+           
           </li>
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500 ">
-            Contact Us <i className="ri-contacts-line"></i>
+            <Link to="/contact">Contact Us <i className="ri-contacts-line"></i></Link>
+            
           </li>
           <li>
             <i className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden ri-shopping-cart-line"></i>
