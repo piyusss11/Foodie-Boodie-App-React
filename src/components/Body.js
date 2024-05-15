@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import Filters from "./Filters";
+import { Link } from "react-router-dom";
 
 
 import { useState, useEffect } from "react";
@@ -28,7 +29,7 @@ const Body = () => {
 
     // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     let resto =
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     setListOfRestaurants(resto);
  
     setfilteredRestaurants(resto)
@@ -73,7 +74,7 @@ const Body = () => {
               setsearchText(e.target.value);
             }}
             
-            placeholder="search"
+            placeholder="Search..."
           ></input>
           <button
             onClick={() => {
@@ -93,7 +94,7 @@ const Body = () => {
 
       <div className="res-container  mt-10 flex flex-wrap gap-8 justify-center items-center  ">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaurantCard  resData={restaurant} /></Link>
         ))}
       </div>
     </div>
