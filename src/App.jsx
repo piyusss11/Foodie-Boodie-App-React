@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import Header from "./components/Header";
-import Body from "./components/Body";
 import Footer from "./components/Footer";
+import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./components/Error";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import NewMenu from "./components/NewMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   // console.log(<Body/>);
@@ -28,7 +28,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Homepage />,
       },
       {
         path: "/about",

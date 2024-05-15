@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
@@ -16,18 +16,37 @@ const Header = () => {
       <div className="nav-items ">
         <ul className="flex gap-12  text-base">
           <li className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden">
-            <Link to="/">Home<i className="ri-home-2-line"></i></Link> 
+            <NavLink
+              className={({ isActive }) =>
+                `${isActive ? "text-yellow-500" : "text-black"}`
+              }
+              to="/"
+            >
+              Home<i className="ri-home-2-line"></i>
+            </NavLink>
           </li>
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500">
-            <Link to="/about">About Us  <i className="ri-information-line"></i></Link>
-           
+            <NavLink
+              className={({ isActive }) =>
+                `${isActive ? "text-yellow-500" : "text-black"}`
+              }
+              to="/about"
+            >
+              About Us <i className="ri-information-line"></i>
+            </NavLink>
           </li>
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500 ">
-            <Link to="/contact">Contact Us <i className="ri-contacts-line"></i></Link>
-            
+            <NavLink
+              className={({ isActive }) =>
+                `${isActive ? "text-yellow-500" : "text-black"}`
+              }
+              to="/contact"
+            >
+              Contact Us <i className="ri-contacts-line"></i>
+            </NavLink>
           </li>
           <li>
-            <i className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden ri-shopping-cart-line"></i>
+            <i className="hover:text-yellow-500 md:cursor-pointer md:text-black md:block hidden ri-shopping-cart-line"></i>
           </li>
           <li>
             {" "}
