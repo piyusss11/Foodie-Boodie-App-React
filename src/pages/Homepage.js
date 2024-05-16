@@ -10,6 +10,7 @@ function Homepage() {
   const [filteredList, setFilteredList] = useState([]);
   const [tab, setTab] = useState("all");
   const [searchText, setSearchText] = useState(""); // Add searchText state
+    
 
   useEffect(() => {
     fetchData();
@@ -41,6 +42,20 @@ function Homepage() {
       setFilteredList(list);
     }
   };
+  function Filters({ filtername, isActive, clicky }) {
+    return (
+      <button
+        className={`w-32 py-1 border-2 rounded-3xl text-xs ${
+          isActive
+            ? "text-white bg-yellow-500"
+            : "text-gray-500"
+        }`}
+        onClick={clicky}
+      >
+        {filtername}
+      </button>
+    );
+  }
 
   return list.length === 0 ? (
     <Shimmer />
@@ -50,6 +65,7 @@ function Homepage() {
         <div className="filter-btn flex gap-6 ">
           <Filters
             filtername="Top Rated"
+            isActive={tab === "Top Rated"}
             clicky={() => {
               setTab("Top Rated");
             }}
@@ -57,15 +73,17 @@ function Homepage() {
 
           <Filters
             filtername="Delivery time"
+            isActive={tab === "Delivery time"}
             clicky={() => {
               setTab("Delivery time");
             }}
           />
           <Filters
             filtername="Reset"
+            // isActive={tab === "all"}
             clicky={() => {
               setTab("all")
-              setFilteredList(list)
+              // setFilteredList(list)
               setSearchText("")
             }}
           />

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="text-[#f0f0f0]  text-sm cursor-default ">
           {" "}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- with love from
-          Borgue ❤️
+          Foodie Boodie ❤️
         </div>
       </div>
       <div className="w-full bg-black text-white flex flex-col justify-center items-center ">
