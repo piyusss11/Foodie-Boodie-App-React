@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { BOY_URL } from "../utils/constants";
+import User from "../components/User";
+import UserClass from "../components/UserClass";
 
 function About() {
   return (
@@ -46,7 +46,7 @@ function About() {
           </p>
         </div>
       </section>
-      <section className="mt-20 ">
+      <section className="mt-20 mb-2 ">
         <div className="my-8">
           <h1 className="text-3xl mb-6 font-bold hover:text-yellow-500 cursor-default">
             Why Choose Us?
@@ -96,6 +96,8 @@ function About() {
           </p>
         </div>
       </section>
+      <User />
+      
     </main>
   );
 }
