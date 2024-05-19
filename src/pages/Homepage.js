@@ -10,7 +10,6 @@ function Homepage() {
   const [tab, setTab] = useState("all");
   const [searchText, setSearchText] = useState(""); // Add searchText state
   const list = useRestaurantCard();
-  console.log(list);
 
   useEffect(() => {
     applyFilter(tab); // Apply filter when tab changes
@@ -21,7 +20,8 @@ function Homepage() {
       setFilteredList(list.filter((item) => item.info.avgRating > 4.2));
     } else if (tab === "Delivery time") {
       setFilteredList(list.filter((item) => item.info.sla.deliveryTime < 35));
-    } else {
+    } 
+    else {
       setFilteredList(list);
     }
   };
@@ -49,10 +49,8 @@ function Homepage() {
           />
           <Filters
             filtername="Reset"
-            // isActive={tab === "all"}
             clicky={() => {
               setTab("all");
-              // setFilteredList(list)
               setSearchText("");
             }}
           />
