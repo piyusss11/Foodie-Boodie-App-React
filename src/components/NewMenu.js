@@ -14,7 +14,14 @@ function NewMenu() {
     <Shimmer />
   ) : (
     <div className="flex flex-col justify-between w-1/2 m-auto mt-4" >
-      <div className="h-40 border-2 border-black">Menu </div>
+      <h1>{name}</h1>
+      <div className="h-40 border-2 border-black py-2 px-3">
+        <h1>rating <span>how many rating</span></h1> 
+        <h1 className="text-yellow-500">cuisines</h1> 
+        <h1 className="font-bold">Outlet<span>- adress</span> </h1> 
+        <h1>delivery time</h1> 
+       </div>
+
       <div className="menu-container">
         {menuItems.map((menuItem) => (
           <MenuCard key={menuItem.card.info.id} menuItem={menuItem.card.info} />
