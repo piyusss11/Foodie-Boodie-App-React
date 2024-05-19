@@ -96,7 +96,7 @@ function About() {
           </p>
         </div>
       </section>
-      <User />
+      
       
     </main>
   );
