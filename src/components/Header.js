@@ -17,7 +17,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="nav-items ">
-        <ul className="flex gap-12  text-base">
+        <ul className="flex gap-12 text-base">
           <li>
             Online status:{onlineStatus?"🟢":"🔴"}
           </li>
