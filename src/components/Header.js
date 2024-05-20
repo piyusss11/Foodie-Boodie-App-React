@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   console.log("header rendered");
+  const onlineStatus = useOnlineStatus()
 
   return (
     <div className="header flex justify-between items-center px-10  shadow-lg rounded-lg">
@@ -15,6 +18,9 @@ const Header = () => {
       </div>
       <div className="nav-items ">
         <ul className="flex gap-12  text-base">
+          <li>
+            Online status:{onlineStatus?"🟢":"🔴"}
+          </li>
           <li className="md:text-yellow-500 md:cursor-pointer hover:text-black md:block hidden">
             <NavLink
               className={({ isActive }) =>
