@@ -6,7 +6,7 @@ import Homepage from "./pages/Homepage";
 // import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./components/Error";
-import NewMenu from "./components/NewMenu";
+import MenuPage from "./pages/MenuPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 
@@ -22,7 +22,7 @@ const AppLayout = () => {
   );
 };
 
-const About = lazy(()=>import("./pages/About"))
+const About = lazy(() => import("./pages/About"));
 
 const appRouter = createBrowserRouter([
   {
@@ -35,7 +35,17 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: (<Suspense fallback={<h1><Shimmer/></h1>}><About /></Suspense>),
+        element: (
+          <Suspense
+            fallback={
+              <h1>
+                <Shimmer />
+              </h1>
+            }
+          >
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
@@ -43,7 +53,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <NewMenu />,
+        element: <MenuPage />,
       },
     ],
     errorElement: <Error />,
