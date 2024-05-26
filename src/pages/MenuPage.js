@@ -4,6 +4,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import MenuAccord from "../components/MenuAccord";
 
 function MenuPage() {
+
   const { resId } = useParams();
 
   const { menuItems, accordItems } = useRestaurantMenu(resId);
