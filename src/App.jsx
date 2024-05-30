@@ -24,43 +24,37 @@ const AppLayout = () => {
     };
     setUserName(data.name);
   }, []);
-  const [themeMode,setThemeMode] =useState("light")
- 
+  const [themeMode, setThemeMode] = useState("light");
 
-    if(themeMode==="light"){
-      document.querySelector("body").classList.add("bg-white")
-      console.log(themeMode);
-      
-    }if(themeMode==="dark"){
-      document.querySelector("body").classList.add("dark:bg-black")
-      console.log(themeMode);
-      
-    }
+  if (themeMode === "light") {
+    document.querySelector("body").classList.add("bg-white");
+    // console.log(themeMode);
+  }
+  if (themeMode === "dark") {
+    document.querySelector("body").classList.add("dark:bg-black");
+    // console.log(themeMode);
+  }
 
-  const lightTheme = ()=>{
-    setThemeMode("light")
-    
-  }
-  const darkTheme = ()=>{
-    setThemeMode("dark")
-    
-  }
-  useEffect(()=>{
-    const lighAndDark = document.querySelector("html").classList
-    lighAndDark.remove("light","dark")
-    lighAndDark.add(themeMode)
+  const lightTheme = () => {
+    setThemeMode("light");
+  };
+  const darkTheme = () => {
+    setThemeMode("dark");
+  };
+  useEffect(() => {
+    const lighAndDark = document.querySelector("html").classList;
+    lighAndDark.remove("light", "dark");
+    lighAndDark.add(themeMode);
     // document.querySelector("body").classList.remove("bg-white,bg-black")
-  },[themeMode])
-
+  }, [themeMode]);
 
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName }}>
         <div className="app">
-          <ThemeProvider value={{themeMode,lightTheme,darkTheme}}>
-
-          <Header />
-          </ThemeProvider >
+          <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
+            <Header />
+          </ThemeProvider>
           <Outlet />
           <Footer />
         </div>

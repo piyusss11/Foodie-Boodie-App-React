@@ -16,7 +16,7 @@ function MenuItems({ menuItem }) {
 
 
   return (
-    <div className="flex justify-between border-b-2 my-6 w-full dark:bg-yellow-200 dark:border-white ">
+    <div className="flex justify-between border-b-2 my-6 w-full dark:bg-yellow-200 dark:border-none dark:rounded-lg dark:p-3">
       <div className="w-4/5">
         <h1 className="flex items-center gap-2 text-base ">
           {name}
