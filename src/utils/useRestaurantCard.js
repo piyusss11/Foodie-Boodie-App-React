@@ -11,6 +11,8 @@ const useRestaurantCard = () => {
         const json = await data.json()
         const resto = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
+        // const resto = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+        // ?.restaurants;
         setList(resto)
         console.log(resto);
         
@@ -18,3 +20,20 @@ const useRestaurantCard = () => {
     return list
 };
 export default useRestaurantCard;
+
+// export const useRestoInfo = ()=>{
+//     const[list,setList]=useState([])
+//     useEffect(()=>{
+//         fetchData()
+//     },[])
+//     const fetchData = async ()=>{
+//         const data = await fetch(MENU_URL + resId)
+//         const json = await data.json()
+//         const resto = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+//         ?.restaurants;
+//         setList(resto)
+//         // console.log(resto);
+        
+//     }
+//     return list
+// }

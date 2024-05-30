@@ -12,7 +12,7 @@ const useRestaurantMenu = (resId) => {
       const menuData =
         data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card
           ?.card.itemCards || [];
-      setMenuItems(menuData);
+      setMenuItems(menuData)
       const categories =
         data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
           (c) =>

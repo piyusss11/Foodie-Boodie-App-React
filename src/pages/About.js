@@ -5,7 +5,7 @@ import UserClass from "../components/UserClass";
 
 function About() {
   return (
-    <main className="mx-20 ">
+    <main className="mx-20 dark:text-white">
       <section className="mt-12  flex justify-center ">
         <div className=" flex flex-col justify-center">
           <h1 className="text-3xl mb-8 font-bold hover:text-yellow-500 cursor-default">
@@ -23,7 +23,7 @@ function About() {
         </div>
       </section>
       <section className="flex mt-12 gap-20 justify-center">
-        <div className="border-2 border-black h-80 w-80 rounded-xl shadow-xl flex flex-col items-center px-6 ">
+        <div className="border-2 border-black h-80 w-80 rounded-xl shadow-xl flex flex-col items-center px-6 dark:border-white ">
           <h1 className="text-3xl my-5 font-semi hover:text-yellow-500 cursor-default">
             Our Mission
           </h1>
@@ -34,7 +34,7 @@ function About() {
             lives and supports local restaurants.
           </p>
         </div>
-        <div className="border-2 border-black h-80 w-80 rounded-xl shadow-xl flex flex-col items-center px-6 ">
+        <div className="border-2 border-black h-80 w-80 rounded-xl shadow-xl flex flex-col items-center px-6 dark:border-white">
           <h1 className="text-3xl my-5 font-semi hover:text-yellow-500 cursor-default">
             What We Offer
           </h1>

@@ -11,13 +11,19 @@ function Homepage() {
   const [tab, setTab] = useState("all");
   const [searchText, setSearchText] = useState(""); // Add searchText state
   const list = useRestaurantCard();
+  // const [filteredList,setFilteredList] = useState(list)
   const BestSeller = withBestSellerLabel(RestaurantCard);
 
-  const filterList = (list, tab) => {
+  const filterList = (list, tab, searchText) => {
     if (tab === "Top Rated") {
       return list.filter((item) => item.info.avgRating > 4.2);
     } else if (tab === "Delivery time") {
       return list.filter((item) => item.info.sla.deliveryTime < 35);
+    }
+    if (searchText) {
+      return list.filter((item) =>
+        item.info.name.toLowerCase().includes(searchText.toLowerCase())
+      );
     } else {
       return list;
     }
@@ -62,28 +68,23 @@ function Homepage() {
             placeholder="Search..."
           />
           <button
-            onClick={() => {
-              const filteredRestaurants = list.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredList(filteredRestaurants);
-            }}
+            onClick={() => {}}
             className="bg-yellow-500 hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 rounded-lg"
           >
             Search
           </button>
         </div>
       </div>
-      <div className="res-container mt-10 flex flex-wrap gap-8 justify-center items-center">
-        {filterList(list, tab).map((restaurant) => (
+      <div className="res-container mt-10 flex flex-wrap gap-8 justify-center items-center mx-20">
+        {filterList(list, tab, searchText).map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
             {restaurant.info.avgRating > 4.2 ? (
-              <BestSeller resData={restaurant} />
+              <BestSeller resData={restaurant} listdata={list}/>
             ) : (
-              <RestaurantCard resData={restaurant} />
+              <RestaurantCard resData={restaurant}listdata={list} />
             )}
           </Link>
         ))}
