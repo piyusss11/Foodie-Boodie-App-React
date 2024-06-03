@@ -50,7 +50,7 @@ const AppLayout = () => {
 
   return (
     <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: userName }}>
+      {/* <UserContext.Provider value={{ loggedInUser: userName }}> */}
         <div className="app">
           <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
             <Header />
@@ -58,7 +58,7 @@ const AppLayout = () => {
           <Outlet />
           <Footer />
         </div>
-      </UserContext.Provider>
+      {/* </UserContext.Provider> */}
     </Provider>
   );
 };

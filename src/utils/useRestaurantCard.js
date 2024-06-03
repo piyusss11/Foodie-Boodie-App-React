@@ -14,26 +14,10 @@ const useRestaurantCard = () => {
         // const resto = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
         // ?.restaurants;
         setList(resto)
-        console.log(resto);
+        // console.log(resto);
         
     }
     return list
 };
 export default useRestaurantCard;
 
-// export const useRestoInfo = ()=>{
-//     const[list,setList]=useState([])
-//     useEffect(()=>{
-//         fetchData()
-//     },[])
-//     const fetchData = async ()=>{
-//         const data = await fetch(MENU_URL + resId)
-//         const json = await data.json()
-//         const resto = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-//         ?.restaurants;
-//         setList(resto)
-//         // console.log(resto);
-        
-//     }
-//     return list
-// }

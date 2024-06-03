@@ -11,7 +11,7 @@ const Header = () => {
 
   // console.log("header rendered");
   const onlineStatus = useOnlineStatus();
-  const { loggedInUser } = useContext(UserContext);
+  // const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
   // console.log(cartItems);
 
@@ -24,11 +24,17 @@ const Header = () => {
       </div>
       <div className="nav-items ">
         <ul className="flex gap-12 text-base">
-          <li className="dark:text-white">Online status:{onlineStatus ? "🟢" : "🔴"}</li>
+          <li className="dark:text-white">
+            Online status:{onlineStatus ? "🟢" : "🔴"}
+          </li>
           <li className=" md:text-yellow-500 md:cursor-pointer  md:block hidden dark:text-white">
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-yellow-500 dark:text-yellow-500" : "text-black dark:text-white"}`
+                `${
+                  isActive
+                    ? "text-yellow-500 dark:text-yellow-500"
+                    : "text-black dark:text-white"
+                }`
               }
               to="/"
             >
@@ -38,7 +44,11 @@ const Header = () => {
           <li className="md:cursor-pointer md:block hidden  ">
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-yellow-500 dark:text-yellow-500" : "text-black dark:text-white"}`
+                `${
+                  isActive
+                    ? "text-yellow-500 dark:text-yellow-500"
+                    : "text-black dark:text-white"
+                }`
               }
               to="/about"
             >
@@ -48,7 +58,11 @@ const Header = () => {
           <li className="md:cursor-pointer md:block hidden hover:text-yellow-500 ">
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-yellow-500 dark:text-yellow-500" : "text-black dark:text-white"}`
+                `${
+                  isActive
+                    ? "text-yellow-500 dark:text-yellow-500"
+                    : "text-black dark:text-white"
+                }`
               }
               to="/contact"
             >
@@ -58,7 +72,11 @@ const Header = () => {
           <li className="flex hover:text-yellow-500 md:cursor-pointer md:text-black md:block ">
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-yellow-500 dark:text-yellow-500" : "text-black dark:text-white"}`
+                `${
+                  isActive
+                    ? "text-yellow-500 dark:text-yellow-500"
+                    : "text-black dark:text-white"
+                }`
               }
               to="/cart"
             >
@@ -68,14 +86,15 @@ const Header = () => {
           </li>
           <li>
             <button
-              // onClick={() => {
-              //   btnName === "Login"
-              //     ? setbtnName("Logout")
-              //     : setbtnName("Login");
-              // }}
-              className="bg-yellow-500  hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 w-24 rounded-lg"
+              onClick={() => {
+                btnName === "Login"
+                  ? setbtnName("Logout")
+                  : setbtnName("Login");
+              }}
+              className="bg-yellow-500  hover:bg-black hover:text-yellow-500 text-white font-bold text-sm py-1 px-2 w-24 rounded-lg dark:hover:bg-white"
             >
-              User:{loggedInUser ? loggedInUser : "sign in"}
+              {btnName}
+              {/* {loggedInUser ? loggedInUser : "sign in"} */}
             </button>
           </li>
           <li>

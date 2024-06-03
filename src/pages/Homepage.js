@@ -82,9 +82,9 @@ function Homepage() {
             to={"/restaurants/" + restaurant.info.id}
           >
             {restaurant.info.avgRating > 4.2 ? (
-              <BestSeller resData={restaurant} listdata={list}/>
+              <BestSeller resData={restaurant} listdata={list} />
             ) : (
-              <RestaurantCard resData={restaurant}listdata={list} />
+              <RestaurantCard resData={restaurant} listdata={list} />
             )}
           </Link>
         ))}

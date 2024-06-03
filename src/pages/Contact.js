@@ -5,15 +5,15 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div className="mt-8 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
-              <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
+            <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg dark:bg-yellow-500">
+              <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight dark:text-white">
                 Get in touch:
               </h1>
-              <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
+              <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2 dark:text-white">
                 Fill in the form to start a conversation
               </p>
 
-              <div className="flex items-center mt-8 text-gray-600">
+              <div className="flex items-center mt-8 text-gray-600 dark:text-white">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -21,7 +21,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                   strokeWidth="1.5"
                   viewBox="0 0 24 24"
-                  className="w-8 h-8 text-gray-500"
+                  className="w-8 h-8 text-gray-500 dark:text-white"
                 >
                   <path
                     strokeLinecap="round"
@@ -36,12 +36,12 @@ const Contact = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <div className="ml-4 text-md tracking-wide font-semibold w-40">
+                <div className="ml-4 text-md tracking-wide font-semibold w-40 ">
                   Cyber Hub, Gurgaon, India
                 </div>
               </div>
 
-              <div className="flex items-center mt-4 text-gray-600">
+              <div className="flex items-center mt-4 text-gray-600 dark:text-white">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -49,7 +49,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                   strokeWidth="1.5"
                   viewBox="0 0 24 24"
-                  className="w-8 h-8 text-gray-500"
+                  className="w-8 h-8 text-gray-500 dark:text-white"
                 >
                   <path
                     strokeLinecap="round"
@@ -63,7 +63,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center mt-2 text-gray-600">
+              <div className="flex items-center mt-2 text-gray-600 dark:text-white">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -71,7 +71,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                   strokeWidth="1.5"
                   viewBox="0 0 24 24"
-                  className="w-8 h-8 text-gray-500"
+                  className="w-8 h-8 text-gray-500 dark:text-white"
                 >
                   <path
                     strokeLinecap="round"
@@ -128,7 +128,8 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="md:w-32 bg-yellow-500 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-black hover:text-yellow-500 transition ease-in-out duration-300"
+                onClick={(e)=>{e.preventDefault()}}
+                className="md:w-32 bg-yellow-500 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-black hover:text-yellow-500 transition ease-in-out duration-300 dark:hover:bg-white"
               >
                 Submit
               </button>
