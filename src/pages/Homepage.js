@@ -23,7 +23,7 @@ function Homepage() {
     if (searchText) {
       return list.filter((item) =>
         item.info.name.toLowerCase().includes(searchText.toLowerCase())
-      );
+      )
     } else {
       return list;
     }
