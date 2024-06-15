@@ -13,7 +13,7 @@ import Shimmer from "./components/Shimmer";
 // import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import {  ThemeProvider } from "./context/themeContext";
+import { ThemeProvider } from "./context/themeContext";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
@@ -57,13 +57,13 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
       {/* <UserContext.Provider value={{ loggedInUser: userName }}> */}
-        <div className="app">
-          <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
-            <Header />
-          </ThemeProvider>
-          <Outlet />
-          <Footer />
-        </div>
+      <div className="app">
+        <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
+          <Header />
+        </ThemeProvider>
+        <Outlet />
+        <Footer />
+      </div>
       {/* </UserContext.Provider> */}
     </Provider>
   );
