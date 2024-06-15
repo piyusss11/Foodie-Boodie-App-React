@@ -10,10 +10,10 @@ import MenuPage from "./pages/MenuPage";
 import Cart from "./pages/Cart";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
-import UserContext from "./utils/UserContext";
+// import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import { ThemeContext, ThemeProvider } from "./context/themeContext";
+import {  ThemeProvider } from "./context/themeContext";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
