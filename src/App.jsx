@@ -36,17 +36,23 @@ const AppLayout = () => {
   }
 
   const lightTheme = () => {
+    const lighAndDark = document.querySelector("html").classList;
+    lighAndDark.remove("light", "dark");
+    lighAndDark.add("light");
     setThemeMode("light");
   };
   const darkTheme = () => {
-    setThemeMode("dark");
-  };
-  useEffect(() => {
     const lighAndDark = document.querySelector("html").classList;
     lighAndDark.remove("light", "dark");
-    lighAndDark.add(themeMode);
-    // document.querySelector("body").classList.remove("bg-white,bg-black")
-  }, [themeMode]);
+    lighAndDark.add("dark");
+    setThemeMode("dark");
+  };
+  // useEffect(() => {
+  //   const lighAndDark = document.querySelector("html").classList;
+  //   lighAndDark.remove("light", "dark");
+  //   lighAndDark.add(themeMode);
+  //   // document.querySelector("body").classList.remove("bg-white,bg-black")
+  // }, [themeMode]);
 
   return (
     <Provider store={appStore}>
