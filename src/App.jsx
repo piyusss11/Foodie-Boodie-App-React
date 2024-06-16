@@ -13,7 +13,7 @@ import Shimmer from "./components/Shimmer";
 // import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import { ThemeProvider } from "./context/themeContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
