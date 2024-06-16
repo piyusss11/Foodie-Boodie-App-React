@@ -1,5 +1,5 @@
 import React from "react";
-import usetheme from "../context/themeContext";
+import usetheme from "../context/ThemeContext";
 
 function ThemeButton() {
   const { themeMode, lightTheme, darkTheme } = usetheme();
