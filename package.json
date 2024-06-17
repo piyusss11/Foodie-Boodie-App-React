@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "food app by piyusss",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "start": "parcel",
+    "build": "parcel build",
     "test": "jest",
     "watch-test": "jest --watch"
   },
