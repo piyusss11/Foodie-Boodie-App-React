@@ -1,20 +1,9 @@
-My Food App structure will look like this,
+Use Cors extension in your browser before running it.
+https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
 
-1. Header - 
-Logo - Nav Items - Cart
-2. Body - 
-Search bar - Restaurants List - Restaurant card - Image - Name - Rating
-3. Footer - 
-Links - Copyrights
-
-#React hooks
-(normal JS utility functions)
-
-1.useState() - superpower state react variable
-2.useEffect()
+This is a food App. It is made by using Swiggy's official api for the restuarants and the items. 
+This app contains a dark mode switch.
+Used context api and reduxk toolkit for managing states in the app. 
 
 
-offer
-pure veg
-nearest
-pocket friendly
+
